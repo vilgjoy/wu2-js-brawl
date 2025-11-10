@@ -1,0 +1,37 @@
+ul {
+    list-style: none;
+    font-family: monospace;
+}
+
+#combat-log {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 4px 0;
+    line-height: 1.25;
+}
+
+#combat-log li span + span {
+    display: inline-block;
+}
+
+.bold {
+    font-weight: 900;
+    color: red;
+}
+
+.player {
+    color: blue;
+}
+
+.enemy {
+    color: orange;
+}
+
+.log-timestamp {
+    color: gray;
+    font-family: monospace;
+    min-width: 80px;
+    text-align: left;
+}
+
+
