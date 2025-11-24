@@ -240,4 +240,9 @@ function nextLevel() {
     log(`--- LEVEL ${level} STARTED: ${name} approaches! ---`, "bold")
     toggleShop(false) // dölj shop, visa strid
     updateUI()
-}
+} 
+
+playButton.addEventListener("click", gameLoop)
+stopButton.addEventListener("click", stop)
+updateUI()
+
