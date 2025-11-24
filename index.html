@@ -3,17 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brawl</title>
+    <title>Brawl RPG</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-        <h1>Brawl</h1>
-        <h2>Player HP: <span id="player-hp">100</span></h1>
-        <h2>Enemy HP: <span id="enemy-hp">100</span></h1>
-        <button id="play-button">Play</button>
-        <button id="stop-button">Stop</button>
-        <ul id="combat-log"></ul>
+        <h1>Brawl RPG</h1>
+        <div class="stats-container">
+            <span>Level: <b id="level-display">1</b></span>
+            <span>Gold: <b id="gold-display">0</b></span>
+        </div>
+
+        <div class="combat-area">
+            <h2>Player HP: <span id="player-hp">100</span></h2>
+            <div class="hp-bar-bg">
+                <div id="player-bar-fill" class="hp-bar-fill" style="width: 100%;"></div>
+            </div>
+
+            <h2>Enemy HP: <span id="enemy-hp">100</span> (<span id="enemy-name">Goblin</span>)</h2>
+            <div class="hp-bar-bg">
+                <div id="enemy-bar-fill" class="hp-bar-fill" style="width: 100%;"></div>
+            </div>
+
+            <div class="controls">
+                <button id="play-button">Fight</button>
+                <button id="stop-button">Pause</button>
+            </div>
+            
+            <ul id="combat-log"></ul>
+        </div>
+
+        <div id="shop-area" class="hidden">
+            <h2>Winner! The shop is open.</h2>
+            <p>You take a breather and loot the enemy.</p>
+            <div class="shop-buttons">
+                <button id="buy-potion">Buy Potion (50g) <br><small>+30 HP</small></button>
+                <button id="buy-upgrade">Upgrade Weapon (100g) <br><small>+Damage</small></button>
+            </div>
+            <br>
+            <button id="next-level-btn">Start Next Level</button>
+        </div>
+
     </main>
     
     <script src="main.js"></script>

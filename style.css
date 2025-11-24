@@ -1,7 +1,20 @@
 ul {
-    list-style: none;
-    font-family: monospace;
+    list-style-type: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #444;
+    background: #333;
+    text-align: left;
+    padding: 10px;
 }
+
+li { margin-bottom: 5px; border-bottom: 1px solid #444; padding-bottom: 2px; }
+.log-timestamp { color: #888; font-size: 0.8em; margin-right: 10px; }
+.bold { font-weight: bold; color: gold; }
+.healing { color: lightgreen; }
+.enemy { color: #ff6b6b; }
+.player { color: #6bccf9; }
 
 #combat-log {
     display: flex;
@@ -14,28 +27,46 @@ ul {
     display: inline-block;
 }
 
-.bold {
-    font-weight: 900;
-    color: red;
-}
-
-.player {
-    color: blue;
-}
-
-.enemy {
-    color: orange;
-}
-
-.healing {
-    color: green;
-}
-
 .log-timestamp {
     color: gray;
     font-family: monospace;
     min-width: 80px;
     text-align: left;
+}
+
+/* health bars*/
+.hp-bar-bg {
+    background-color: #555;
+    width: 300px;
+    height: 20px;
+    margin: 0 auto 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #000;
+}
+
+.hp-bar-fill {
+    background-color: #4caf50;
+    height: 100%;
+    transition: width 0.3s ease; /* Snygg animation när HP ändras */
+}
+
+/* hop and utilities */
+.hidden { display: none; }
+
+#shop-area {
+    background-color: #333;
+    padding: 20px;
+    border: 2px solid gold;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 5px;
 }
 
 
