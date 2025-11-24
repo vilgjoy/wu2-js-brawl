@@ -71,6 +71,7 @@ const player= {
 function battleTurn() {
     const pRoll = rollDice()
     const eRoll = rollDice()
+    let dmg = pRoll - eRoll
     const playerAtkMsg= [
         `You hit the enemy for ${dmg} damage, so they are at ${enemy.hp}`,
         `You slashed and dashed the enemy for ${dmg} damage, so they are at ${enemy.hp}`,
@@ -78,23 +79,22 @@ function battleTurn() {
         `You shoot shoot your sword towards the enemy, dealing ${dmg} damage, so they are at ${enemy.hp}`,
     ]
     if (pRoll > eRoll) {
-        let dmg = pRoll - eRoll
         if (Math.random() < 0.3) {
             player.hp = Math.min(player.hp + dmg, playerMaxHp)
-            log(`You healed for ${dmg} hp. You currently sit at ${player.hp}`)
+            log(`You healed for ${dmg} hp. You currently sit at ${player.hp}`, "healing")
         } else {
             enemy.hp -= dmg 
             log(playerAtkMsg[Math.floor(Math.random() * playerAtkMsg.length)], "player")
         }
     }
     else if (eRoll > pRoll) {
-        let dmg = eRoll - pRoll
+        let dmg2 = eRoll - pRoll
         if (Math.random() < 0.3) {
-            enemy.hp = Math.min(enemy.hp + dmg, enemyMaxHp)
-            log(`Enemy unfortunatly healed for ${dmg} hp. Their hp is at ${enemy.hp}`)
+            enemy.hp = Math.min(enemy.hp + dmg2, enemyMaxHp)
+            log(`Enemy unfortunatly healed for ${dmg2} hp. Their hp is at ${enemy.hp}`, "healing")
         } else {
-            player.hp -= dmg
-            log(`The enemy dealt ${dmg} to you. player hp is at ${player.hp} while enemy hp is at ${enemy.hp}`, "enemy")
+            player.hp -= dmg2
+            log(`The enemy dealt ${dmg2} to you. player hp is at ${player.hp} while enemy hp is at ${enemy.hp}`, "enemy")
         }
     }
     else {
@@ -120,7 +120,7 @@ function gameLoop() {
         battleTurn()
 
         if(player.hp > 0 && enemy.hp > 0) {
-            gameLoopTimeout = setTimeout(runTurn, 2000)
+            gameLoopTimeout = setTimeout(runTurn, 1000)
         }
     }
 

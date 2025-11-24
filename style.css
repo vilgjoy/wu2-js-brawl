@@ -27,6 +27,10 @@ ul {
     color: orange;
 }
 
+.healing {
+    color: green;
+}
+
 .log-timestamp {
     color: gray;
     font-family: monospace;
